@@ -1,0 +1,30 @@
+---
+title: "fruit flies and sex"
+output: html_document
+---
+
+Fruit flies are a species of fly. If you would like more information it can be found on 
+[Wikipedia](https://en.wikipedia.org/wiki/Fruit_fly)
+
+This is what a fruit fly looks like 
+
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("fruitfly.jpg")
+```
+The distribution of longevity looks like this!!!
+```{r echo=FALSE, message=FALSE}
+#y~mx+b
+library(tidyverse)
+fruit.flies<-read_csv("FruitFlies2.csv")
+ggplot(fruit.flies, aes(x=Longevity))+geom_dotplot(binwidth=2)+
+  facet_grid(Treatment~.)
+grand<-summarize(fruit.flies, grand.mean=mean(Longevity))
+grand$grand.mean
+
+group<-summarize(group_by(fruit.flies,Treatment), group.mean=mean(Longevity))
+group$group.mean
+
+
+```
+
+

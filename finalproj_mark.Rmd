@@ -1,0 +1,44 @@
+---
+title: "Jennifer's ~~Final~~ AMAZING PROJECT"
+output: html_document
+---
+### Where is my data from?
+My data was from [data.gov](https://www.data.gov/). This was a dataset from the Austin Texas police department in 2015.
+If you would like more information on the Austin, TX police department, check out their website:
+[Austin Texas Police Website](http://www.austintexas.gov/department/police).
+
+###Variables in context of my project
++ **Gender**: Male, Female
++ **Ethnicity/Race**: Hispanic, White, Black, Asian
++ **Search discovery**: Alchohol, Cash, Drugs, Nothing, Other, Weapons
++ **Age**: 10-19, 20-29, 30-39, 40-49, 50-59, 60-69
++ **If suspects were searched**: Yes, No
++ **Reason for stop**: Call for Service, Violation of Transportation Code, Consensual Contact, Pre Existing Knowledge, Suspicious Person/Vehicle, Violation of Penal Code, Violation of City Ordinance, Water Safety Act, N/A 
+
+#####The graph below shows us the counts of the different ages at offence. The **most common age** appears to be from 23-36 years old
+```{r echo=FALSE, results='hide',message=FALSE, warning(call. =FALSE)}
+library(tidyverse)
+library(ggplot2)
+read_csv("race.csv")
+POLICE<-read_csv("race.csv")
+ 
+testmine <- ggplot(POLICE, aes(x = AGE_AT_OFFENSE) ) 
+testmine +geom_histogram(binwidth=.5, fill = "#36A2EE", color = "#0C0C7A")
+ facet_wrap(~habit)
+ #testmine+ scale_color_brewer(palette = "Set2")
+  
+ #testmine + scale_fill_brewer(palette="Bluesread_csv("race.csv")") + theme_classic()
+```
+
+##### The graph below will show us the difference in the sex of the suspect. For this dataset sex is limit to **male** (represented by M), and **female** (represented by F). We can see that there are significantly more males than females arrested.
+
+```{r echo=FALSE, results='hide',message=FALSE}
+g <- ggplot( POLICE, aes(x = SEX, color=SEX))
+# Number of cars in each class:
+g + geom_bar( fill = "#F81974", color = "#7A0C39")
+facet_wrap(~habit)
+#+scale_color_brewer(palette = "Purples")
+
+```
+
++ ####**In the future** I would like to find statistics on the population of Austin Texas and see how these numbers compare to the population. I would also like to study other cities and their arrests. If possible, with consideration of varying procedures, demographics, and other variables.

@@ -1,0 +1,46 @@
+---
+title: "Very Official Car Report"
+output:
+  html_document:
+    df_print: paged
+---
+##What is a car?
+I think a *car* is something made out of metal that gets you front point A to point B. I would think that the concept of a car came from the horse and buggy, and I think that the future of cars is going to be **self driving cars**!
+* My car history
+  + Horse and Buggy
+  + Regular Modern Car
+  + Self Driving Car 
+  
+#caR Analysis
+## Part A
+The variables in the car dataframe(which is just a built in data set in R markdown) includes speed and distance(which is compared amungst 50 different cars).
+## Part B
+I speculate that this sample of 50 different cars was gotten randomly in a simple random sample or SRS. This sample was collected from Ezekiel, M. (1930) Methods of Correlation Analysis. Wiley.
+## Part C
+This analysis that this data could be used for would be for finding out how fast and far different cars can go.
+## Part D
+I predict that the faster you go the further you go (I don't know much about cars).
+```{r}
+library(mosaic)
+library(Lock5withR)
+library(Lock5Data)
+library(mosaicData)
+library(ggplot2)
+summarize(cars)
+plot(dist~speed,main="The effect of speed of a car on the distance the car travels",col="red", data=cars)
+```
+My prefict on the faster you go, the further you travel was proven to be correct by the graph of the speed vs. time. This is not shocking to me because I am always correct ;)
+
+##mtcaR Analysis
+Here is a description of the mtcars: The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+```{r}
+plot(mpg~hp,main= "The effect of miles per gallon, on the gross horsepower", col="red",data=mtcars)
+```
+##Part A
+The variables in the car dataframe(which is just a built in data set in R markdown) includes miles per galon and gross horse power.
+##Part B
+I predict that the data was collected in a simple random sample where multiple cars were tested. The data was collected by Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411. and I was roughly correct
+##Part C
+This analysis could be used for trying to help car owners save on gas.
+##Part D 
+I predict the the plot will show that the lower the miles per gallon the faster the gross horse power is. This would imply that if you want to save on gas you should buy a car with a lower gross horse power
